@@ -16,8 +16,13 @@ $(document).ready(function($) {
     scrollProperty: 'scroll'
   });
 
+  $('.about-desc a').on('click', function(event) {
+    event.stopPropagation();
+  });
+  
+
 	// Scrollax
-  $.Scrollax();
+  	$.Scrollax();
 
 
 	// loader
@@ -200,6 +205,13 @@ $(document).ready(function($) {
 
 	};
 	pageProgress();
+
+	$('#colorlib-main-nav ul li a').on('click', function() {
+  if ($('body').hasClass('menu-show')) {
+    $('body').removeClass('menu-show');
+    $('#colorlib-main-nav > .js-colorlib-nav-toggle').removeClass('show');
+  }
+	});
 
 
 });

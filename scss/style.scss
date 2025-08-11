@@ -728,9 +728,22 @@ header{
 	@include media-breakpoint-down(sm){
 		margin-top: 40px;
 	}
-	.about-desc{
-		@include media-breakpoint-up(md){
+	.about-desc { 
+		a {
 			position: relative;
+			z-index: 10;
+			color: #79efb4;           // Color visible para el enlace
+			text-decoration: none;    // Quita subrayado por defecto
+			cursor: pointer;          // Cursor de enlace
+			transition: all 0.3s ease;
+		
+			&:hover, &:focus {
+			  color: #2f89fc;          // Color al pasar mouse
+			  text-decoration: underline;
+			}
+		  }
+		@include media-breakpoint-up(md){
+			
 		}
 		.bold-text{
 			position: absolute;
@@ -741,6 +754,10 @@ header{
 			font-weight: 700!important;
 			color: rgba(255,255,255,.08);
 			text-transform: uppercase;
+			z-index: 0;
+			pointer-events: none !important;
+			display: none !important;
+			outline: none !important;
 			@include media-breakpoint-up(lg){
 				font-size: 10em;
 			}
